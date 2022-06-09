@@ -29,7 +29,7 @@ def upload_image():
 
     file = request.files['file']
     if file.filename == '':
-        flash('No image selected for uploading')
+        flash('No file selected for uploading')
         return redirect(request.url)
 
     if file and allowed_file(file.filename):
@@ -48,7 +48,7 @@ def upload_image():
         return render_template('index.html', filename=filename)
 
     else:
-        flash('Allowed image types are - tar, gz, zip')
+        flash('Allowed file types are - tar, gz, zip')
         return redirect(request.url)
 
 @app.route('/display/<filename>')
